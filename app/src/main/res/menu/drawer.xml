@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_book"
+            android:icon="@mipmap/setting"
+            android:title="测试" />
+        <item
+            android:id="@+id/navigation_item_example"
+            android:icon="@mipmap/scan"
+            android:title="测试" />
+        <item
+            android:id="@+id/navigation_item_blog"
+            android:icon="@mipmap/help"
+            android:title="测试" />
+
+        <item
+            android:id="@+id/navigation_item_about"
+            android:icon="@mipmap/xiaoren"
+            android:title="测试" />
+    </group>
+</menu>

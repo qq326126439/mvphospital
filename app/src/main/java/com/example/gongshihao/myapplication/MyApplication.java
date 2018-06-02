@@ -16,8 +16,8 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        ZXingLibrary.initDisplayOpinion(this);
         context=getApplicationContext();
+        ZXingLibrary.initDisplayOpinion(context);
         Fragmentation.builder().stackViewMode(Fragmentation.NONE).debug(BuildConfig.DEBUG).install();
     }
 

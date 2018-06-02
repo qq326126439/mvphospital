@@ -4,10 +4,7 @@ import android.content.Context;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.SupportActivity;
 import android.support.v7.widget.Toolbar;
-
-import android.view.View;
 
 import com.example.gongshihao.myapplication.Util.TUtil;
 import com.example.gongshihao.myapplication.mvp.BaseModel;
@@ -16,7 +13,7 @@ import com.example.gongshihao.myapplication.mvp.BaseView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
+import me.yokeyword.fragmentation.SupportActivity;
 
 
 /**
@@ -58,7 +55,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
 
     protected void setToolBar(Toolbar toolbar, boolean showLeft) {
         toolbar.setTitle("");
-
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(showLeft);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);

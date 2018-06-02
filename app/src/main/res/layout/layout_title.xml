@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     >
-    <ImageView
-        android:layout_margin="10dp"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@mipmap/xiaoren"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:popupTheme="@style/Toolbar.popupTheme"
+        android:fitsSystemWindows="true"
+        app:layout_collapseMode="pin"
+        android:minHeight="?attr/actionBarSize"
         />
-
-    <ImageView
-        android:id="@+id/ScanImg"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:src="@mipmap/scan" />
-
-
-
-</RelativeLayout>
+</android.support.design.widget.AppBarLayout>

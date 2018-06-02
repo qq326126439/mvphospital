@@ -1,22 +1,42 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/BaseTheme">
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+    </style>
+    <style name="AppThemeNoTitle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">#ffffff</item>
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:textColorSecondary">@color/white</item>-->
     </style>
 
-    <style name="AppThemeNoTitle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <!--Toolbar颜色-->
-        <item name="colorPrimary">@android:color/holo_blue_bright</item>
-        <!-- 状态栏颜色 -->
-        <item name="colorPrimaryDark">@android:color/holo_blue_bright</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
+    <style name="Toolbar.MyStyle" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
     </style>
+
+    <!--Toolbar标题文字大小-->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>  <!--把该属性改为false即可使menu位置位于toolbar之下-->
+    </style>
+    <style name="Toolbar.popupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
+
 
 </resources>

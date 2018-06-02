@@ -5,17 +5,22 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 
+import com.example.gongshihao.myapplication.R;
 import com.example.gongshihao.myapplication.Util.TUtil;
 import com.example.gongshihao.myapplication.mvp.BaseModel;
 import com.example.gongshihao.myapplication.mvp.BasePresenter;
 import com.example.gongshihao.myapplication.mvp.BaseView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -28,7 +33,8 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  */
 
 public abstract class   BaseFramgent <T extends BasePresenter, E extends BaseModel> extends SupportFragment {
-
+    @BindView(R.id.toolbar)
+    public Toolbar toolbar;
     protected View mRootView;
     public Unbinder unbinder;
     protected Context mContext;
@@ -40,14 +46,15 @@ public abstract class   BaseFramgent <T extends BasePresenter, E extends BaseMod
 //    private ListCompositeDisposable disposablesDestroy;// 管理Destroy取消订阅者者
 
 
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 //        if (disposablesDestroy != null) {
 //            throw new IllegalStateException("onCreate called multiple times");
 //        }
 //        disposablesDestroy = new ListCompositeDisposable();
-//    }
+        setHasOptionsMenu(true);
+    }
 
     @Nullable
     @Override
@@ -64,10 +71,17 @@ public abstract class   BaseFramgent <T extends BasePresenter, E extends BaseMod
         mModel = TUtil.getT(this, 1);
         Log.e("对象",mPresenter+"---"+mModel);
         if (this instanceof BaseView) mPresenter.attachVM(this, mModel);
+        ((AppCompatActivity)mActivity).setSupportActionBar(toolbar);
+        setToolbar();
         viewCreate(savedInstanceState);
+
 
     }
 
+    public void setToolbar(){
+        toolbar.setNavigationIcon(R.mipmap.backspace);
+        toolbar.setTitle(R.string.app_name);
+    }
     @Override
     public void onAttach(Context context) {
         mActivity = (Activity) context;
@@ -107,6 +121,13 @@ public abstract class   BaseFramgent <T extends BasePresenter, E extends BaseMod
             return new DefaultHorizontalAnimator();
     }
 
+    public void PressBack(){
+        if (getChildFragmentManager().getBackStackEntryCount() > 1) {
+            popChild();
+        } else {
+            _mActivity.finish();
+        }
+    }
 
     @Override
     public boolean onBackPressedSupport() {

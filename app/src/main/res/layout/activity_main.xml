@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.gongshihao.myapplication.ui.activity.MainActivity">
-    <RelativeLayout
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/mDrawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        >
+        <!-->home view<-->
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
         <include
+            android:id="@+id/Top_title"
             layout="@layout/layout_title"
+            />
+        <com.jude.rollviewpager.RollPagerView
+            android:id="@+id/myRollPagerView"
+            android:layout_below="@+id/Top_title"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:rollviewpager_play_delay="2000"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/myRollPagerView"
+            android:layout_centerInParent="true"
+            android:id="@+id/my_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             />
 
     </RelativeLayout>
-
-
-</android.support.constraint.ConstraintLayout>
+        <!-->侧滑view<-->
+        <android.support.design.widget.NavigationView
+            android:id="@+id/mNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu="@menu/drawer"
+            app:headerLayout="@layout/navigation_header"
+            android:layout_gravity="start"
+            />
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

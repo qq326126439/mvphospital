@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">@color/main_green</color>
     <color name="colorAccent">#FF4081</color>
     <!-- 常用颜色值 -->
     <color name="maintone">#FFD350</color>
@@ -126,7 +126,7 @@
 
 
     <!--app主色调，背景色-->
-    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimary">@color/main_green</color>
     <!--背景色-->
     <color name="colorBackground">#F5F5F5</color>
     <!--app主题色，应用于导航，按钮-->
