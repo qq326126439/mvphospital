@@ -1,5 +1,7 @@
 package com.example.gongshihao.myapplication.http;
 
+import com.example.gongshihao.myapplication.Constracts.NetworkConstracts;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -17,7 +19,7 @@ public class RetrofitClient {
     private static Retrofit retrofit;
     private final static int DEFAULT_TIMEOUT = 20;
     private static HttpService httpService;
-    private static final String BASE_URL = "http://vapp.12584.cn/";
+//    private static final String BASE_URL = "http://vapp.12584.cn/";
 
     //private static final String BASE_URL="http://192.168.1.111:8080/zdtp3/";
     public  RetrofitClient(){
@@ -49,7 +51,7 @@ public class RetrofitClient {
 
                 retrofit = new Retrofit.Builder()
                         .client(okHttpClient)
-                        .baseUrl(BASE_URL)
+                        .baseUrl(NetworkConstracts.ServiceUrl)
                         .addConverterFactory(GsonConverterFactory.create()) //添加Gson转化器
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) //添加rxjava生成observables的adapter
                         .build();

@@ -11,6 +11,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -75,4 +80,7 @@ dependencies {
     //rollViewPage
     compile 'com.jude:rollviewpager:1.4.6'
     implementation 'com.android.support:cardview-v7:26.0.0-alpha1'
+    //web service
+    //    compile(name: 'wsnet-0.0.1', ext: 'aar')
+    implementation files('libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar')
 }
