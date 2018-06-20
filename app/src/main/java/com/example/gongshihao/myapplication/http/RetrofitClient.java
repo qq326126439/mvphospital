@@ -2,6 +2,7 @@ package com.example.gongshihao.myapplication.http;
 
 import com.example.gongshihao.myapplication.Constracts.NetworkConstracts;
 
+import java.net.Proxy;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -46,7 +47,7 @@ public class RetrofitClient {
                 okHttpClient = new OkHttpClient.Builder()
                     .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                     .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                    .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                    .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).proxy(Proxy.NO_PROXY)
                     .build();
 
                 retrofit = new Retrofit.Builder()

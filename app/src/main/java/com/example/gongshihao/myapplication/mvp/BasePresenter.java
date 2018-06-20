@@ -1,6 +1,7 @@
 package com.example.gongshihao.myapplication.mvp;
 
 
+import com.example.gongshihao.myapplication.http.RxManager;
 
 /**
  * Created by Jacky on 2017/5/25.
@@ -10,7 +11,7 @@ public abstract  class BasePresenter <M, T> {
 
     public M mModel;
     public T mView;
-//    public RxManager rx = new RxManager();
+    public RxManager rx = new RxManager();
 
     public void attachVM(T v, M m) {
         this.mView = v;
@@ -22,7 +23,7 @@ public abstract  class BasePresenter <M, T> {
     public void detachVM() {
         mView = null;
         mModel = null;
-//        rx.clear();
+        rx.clear();
     }
 
 

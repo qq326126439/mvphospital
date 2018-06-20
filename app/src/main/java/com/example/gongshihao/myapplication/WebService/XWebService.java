@@ -23,6 +23,14 @@ public class XWebService {
             arrayMap = new SimpleArrayMap<>();
             arrayMap.put("args", json);
         }
+        /**
+         *   parameter1  web service url
+         *   parameter2  web service namespace
+         *   parameter3  functionName
+         *   parameter4  参数
+         *   parameter5   回调方法
+         *
+         * */
         WebServiceUtils.create().call(NetworkConstracts.WebServiceUrl, NetworkConstracts.WebServiceNameSpace, methodName, arrayMap, new WebServiceUtils.Response() {
             @Override
             public void onSuccess(SoapObject result) {
@@ -43,10 +51,14 @@ public class XWebService {
 
     }
 
+    /***
+     *
+     *
+     */
     public interface OnResultListener<T> {
-
+        //请求成功回调
         void onSuccess(T bean);
-
+        //请求失败回调
         void onError();
     }
 

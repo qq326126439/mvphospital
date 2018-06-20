@@ -20,13 +20,17 @@ import com.example.gongshihao.myapplication.ImageUtil.GlideUtil;
 import com.example.gongshihao.myapplication.R;
 import com.example.gongshihao.myapplication.Util.RxthrottleFirst;
 import com.example.gongshihao.myapplication.Util.ViewUtil;
+import com.example.gongshihao.myapplication.Util.WebServiceUtils;
 import com.example.gongshihao.myapplication.WebService.XWebService;
 import com.example.gongshihao.myapplication.bean.MainMenuBean;
 import com.example.gongshihao.myapplication.bean.TestBean;
+import com.example.gongshihao.myapplication.bean.WebServiceBean;
 import com.example.gongshihao.myapplication.ui.activity.MainActivityConstracts.MainConstracts;
 import com.example.gongshihao.myapplication.ui.activity.MainActivityConstracts.MainModel;
 import com.example.gongshihao.myapplication.ui.activity.MainActivityConstracts.MainPresenter;
 import com.example.gongshihao.myapplication.ui.base.BaseFramgent;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.rxbinding2.support.v7.widget.RxSearchView;
 import com.jakewharton.rxbinding2.support.v7.widget.RxToolbar;
 import com.jakewharton.rxbinding2.support.v7.widget.SearchViewQueryTextEvent;
@@ -37,7 +41,10 @@ import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.functions.Consumer;
@@ -74,7 +81,8 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
     @Override
     protected void viewCreate(Bundle savedInstanceState) {
         initView();
-//        TestWebService();
+        
+        TestWebService();
 //        CheckUpdate();
     }
 
@@ -115,8 +123,30 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
             }
         });
     }
+    /***
+     * @param
+     *
+     * */
     public void TestWebService(){
-        XWebService.getIntentData(TestBean.class, "getTest", null, new XWebService.OnResultListener<TestBean>() {
+        WebServiceBean WebServiceBean=new WebServiceBean();
+        WebServiceBean.setU_id("1");
+        WebServiceBean.setU_Name("張三");
+        WebServiceBean.setU_Password("123456");
+        String Args=new Gson().toJson(WebServiceBean);
+        XWebService.getIntentData(WebServiceBean.class, "getTest", Args, new XWebService.OnResultListener<WebServiceBean>() {
+            @Override
+            public void onSuccess(WebServiceBean bean) {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+    }
+    public void TestWebServiceEdit(){
+        XWebService.getIntentData(TestBean.class, "", "", new XWebService.OnResultListener<TestBean>() {
             @Override
             public void onSuccess(TestBean bean) {
 
@@ -127,8 +157,19 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
 
             }
         });
+    }
+    public void TestWebServiceAdd(){
+        XWebService.getIntentData(TestBean.class, "", "", new XWebService.OnResultListener<TestBean>() {
+            @Override
+            public void onSuccess(TestBean bean) {
 
+            }
 
+            @Override
+            public void onError() {
+
+            }
+        });
     }
 
     private void initView() {

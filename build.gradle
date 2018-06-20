@@ -4,7 +4,7 @@ buildscript {
     
     repositories {
         mavenCentral()
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         jcenter(){ url 'http://jcenter.bintray.com/'}
         google()
 
@@ -22,7 +22,7 @@ allprojects {
     repositories {
 
         mavenCentral()
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         jcenter(){ url 'https://jcenter.bintray.com/'}
         maven { url "https://jitpack.io" }
         google()
