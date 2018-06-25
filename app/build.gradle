@@ -84,4 +84,7 @@ dependencies {
     //web service
     //    compile(name: 'wsnet-0.0.1', ext: 'aar')
     implementation files('libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar')
+    //dialogUtil
+    compile 'com.github.hss01248:DialogUtil:1.1.5'
+
 }

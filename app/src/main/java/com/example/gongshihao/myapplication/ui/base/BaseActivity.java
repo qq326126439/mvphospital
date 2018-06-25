@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
+import com.example.gongshihao.myapplication.R;
 import com.example.gongshihao.myapplication.Util.TUtil;
 import com.example.gongshihao.myapplication.mvp.BaseModel;
 import com.example.gongshihao.myapplication.mvp.BasePresenter;
 import com.example.gongshihao.myapplication.mvp.BaseView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
@@ -21,7 +23,9 @@ import me.yokeyword.fragmentation.SupportActivity;
  */
 
 public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel> extends SupportActivity {
-
+    @Nullable
+    @BindView(R.id.toolbar)
+    public Toolbar toolbar;
     public Unbinder unbinder;
     public T mPresenter;
     public E mModel;
@@ -38,6 +42,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         if (this instanceof BaseView) mPresenter.attachVM(this, mModel);
 //        StyledDialog.init(getApplicationContext());
         initCreate(savedInstanceState);
+        setToolbar();
 
     }
 
@@ -52,7 +57,13 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         if (unbinder != null) unbinder.unbind();
         if (mPresenter != null) mPresenter.detachVM();
     }
-
+    public void setToolbar(){
+        if(toolbar!=null){
+            setSupportActionBar(toolbar);
+            toolbar.setNavigationIcon(R.mipmap.backspace);
+            toolbar.setTitle(R.string.app_name);
+        }
+    }
     protected void setToolBar(Toolbar toolbar, boolean showLeft) {
         toolbar.setTitle("");
 //        setSupportActionBar(toolbar);

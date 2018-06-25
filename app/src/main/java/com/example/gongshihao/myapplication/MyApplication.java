@@ -1,6 +1,8 @@
 package com.example.gongshihao.myapplication;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
+
+import com.example.gongshihao.myapplication.bean.User;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 import me.yokeyword.fragmentation.Fragmentation;
@@ -19,6 +21,7 @@ public class MyApplication extends MultiDexApplication {
         context=getApplicationContext();
         ZXingLibrary.initDisplayOpinion(context);
         Fragmentation.builder().stackViewMode(Fragmentation.NONE).debug(BuildConfig.DEBUG).install();
+        User.getUser();
     }
 
     public static Context getContext() {

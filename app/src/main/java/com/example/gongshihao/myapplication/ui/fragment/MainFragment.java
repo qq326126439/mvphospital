@@ -3,6 +3,8 @@ package com.example.gongshihao.myapplication.ui.fragment;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.util.ArrayMap;
+import android.support.v4.util.SimpleArrayMap;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -128,12 +130,10 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
      *
      * */
     public void TestWebService(){
-        WebServiceBean WebServiceBean=new WebServiceBean();
-        WebServiceBean.setU_id("1");
-        WebServiceBean.setU_Name("張三");
-        WebServiceBean.setU_Password("123456");
-        String Args=new Gson().toJson(WebServiceBean);
-        XWebService.getIntentData(WebServiceBean.class, "getTest", Args, new XWebService.OnResultListener<WebServiceBean>() {
+        SimpleArrayMap Args=new ArrayMap();
+        Args.put("arg0","10001");
+        Args.put("arg1","123456");
+        XWebService.getIntentData(WebServiceBean.class, "getTest",null, new XWebService.OnResultListener<WebServiceBean>() {
             @Override
             public void onSuccess(WebServiceBean bean) {
 
@@ -145,32 +145,32 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
             }
         });
     }
-    public void TestWebServiceEdit(){
-        XWebService.getIntentData(TestBean.class, "", "", new XWebService.OnResultListener<TestBean>() {
-            @Override
-            public void onSuccess(TestBean bean) {
-
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
-    }
-    public void TestWebServiceAdd(){
-        XWebService.getIntentData(TestBean.class, "", "", new XWebService.OnResultListener<TestBean>() {
-            @Override
-            public void onSuccess(TestBean bean) {
-
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
-    }
+//    public void TestWebServiceEdit(){
+//        XWebService.getIntentData(TestBean.class, "", "", new XWebService.OnResultListener<TestBean>() {
+//            @Override
+//            public void onSuccess(TestBean bean) {
+//
+//            }
+//
+//            @Override
+//            public void onError() {
+//
+//            }
+//        });
+//    }
+//    public void TestWebServiceAdd(){
+//        XWebService.getIntentData(TestBean.class, "", "", new XWebService.OnResultListener<TestBean>() {
+//            @Override
+//            public void onSuccess(TestBean bean) {
+//
+//            }
+//
+//            @Override
+//            public void onError() {
+//
+//            }
+//        });
+//    }
 
     private void initView() {
           rxPermissions=new RxPermissions(mActivity);

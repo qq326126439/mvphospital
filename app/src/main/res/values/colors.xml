@@ -126,7 +126,7 @@
 
 
     <!--app主色调，背景色-->
-    <color name="colorPrimary">@color/main_green</color>
+    <color name="colorPrimary">#4771A1</color>
     <!--背景色-->
     <color name="colorBackground">#F5F5F5</color>
     <!--app主题色，应用于导航，按钮-->
@@ -176,7 +176,7 @@
 
     <color name="game_text_brown">#78552E</color>
     <color name="transparent1">#7fffffff</color>
-
+    <color name="Fblack">#ff000000</color>
 
 
     <color name="level1">#E700FF</color>

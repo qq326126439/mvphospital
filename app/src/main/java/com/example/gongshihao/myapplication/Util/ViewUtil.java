@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 import com.example.gongshihao.myapplication.MyApplication;
+import com.example.gongshihao.myapplication.R;
+import com.hss01248.dialog.StyledDialog;
 
 /**
  * Created by Jacky on 2017/5/27.
@@ -52,4 +54,7 @@ public class ViewUtil {
         }
         toast.show();
     }
+
+
+
 }

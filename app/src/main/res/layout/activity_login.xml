@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/x1"
+    android:fitsSystemWindows="true"
+    >
+    <include layout="@layout/layout_title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <ImageView
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/biglogo"
+            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="ip: 请输入服务器地址"
+            android:paddingLeft="10dp"
+            android:id="@+id/Edit_Ip"
+            android:textColor="@color/Fblack"
+            android:background="@color/white"
+            android:singleLine="true"
+            android:maxLines="1"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="账号: 请输入账号"
+            android:paddingLeft="10dp"
+            android:id="@+id/Edit_Account"
+            android:textColor="@color/Fblack"
+            android:background="@color/white"
+            android:singleLine="true"
+            android:maxLines="1"
+            />
+        <EditText
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:hint="密码: 请输入密码"
+            android:id="@+id/Edit_Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:maxLines="1"
+
+            />
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="忘记密码？"
+                android:id="@+id/wang"
+                android:onClick="tikai"
+                android:gravity="center|left"
+
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="用户注册"
+                android:onClick="zhu"
+                android:id="@+id/zhuce"
+                android:clickable="true"
+                android:gravity="center|right"
+
+                />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/submit_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:text="登录"
+            android:textSize="18sp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            />
+        </LinearLayout>
+
+
+</LinearLayout>
