@@ -45,7 +45,7 @@ dependencies {
         exclude group: "com.android.support"
     }
     //蒲公英
-    implementation 'com.pgyersdk:sdk:2.8.1'
+//    implementation 'com.pgyersdk:sdk:2.8.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     //    implementation 'jp.wasabeef:glide-transformations:3.2.0'
     //    implementation "com.android.support:support-fragment:26.1.0"
@@ -84,6 +84,7 @@ dependencies {
     //web service
     //    compile(name: 'wsnet-0.0.1', ext: 'aar')
     implementation files('libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar')
+    implementation 'com.github.ikidou:TypeBuilder:1.0'
     //dialogUtil
     compile 'com.github.hss01248:DialogUtil:1.1.5'
 
