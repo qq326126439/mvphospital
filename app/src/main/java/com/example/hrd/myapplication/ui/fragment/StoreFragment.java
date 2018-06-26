@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.hrd.myapplication.Adapter.EquipmentAdapter;
+import com.example.hrd.myapplication.EventBus.StartBrotherEvent;
 import com.example.hrd.myapplication.R;
 import com.example.hrd.myapplication.Util.CommonUtil;
 import com.example.hrd.myapplication.Util.RxthrottleFirst;
@@ -18,6 +19,8 @@ import com.example.hrd.myapplication.ui.fragment.StoreConstracts.StoreConstracts
 import com.example.hrd.myapplication.ui.fragment.StoreConstracts.StoreModel;
 import com.example.hrd.myapplication.ui.fragment.StoreConstracts.StorePresenter;
 import com.jakewharton.rxbinding2.support.v7.widget.RxToolbar;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -60,7 +63,7 @@ public class StoreFragment extends BaseFramgent<StorePresenter,StoreModel> imple
         RxToolbar.navigationClicks(toolbar).compose(RxthrottleFirst.applyThrottleFirst()).subscribe(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
-                PressBack();
+                pop();
             }
         });
     }

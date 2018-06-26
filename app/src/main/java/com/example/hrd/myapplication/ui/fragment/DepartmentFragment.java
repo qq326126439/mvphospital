@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 
+import com.example.hrd.myapplication.Adapter.DepartmentAdapter;
 import com.example.hrd.myapplication.R;
 import com.example.hrd.myapplication.Util.RxthrottleFirst;
 import com.example.hrd.myapplication.Util.ViewUtil;
@@ -20,7 +21,7 @@ public class DepartmentFragment extends BaseFramgent<DepartmentPresenter,Departm
 
     @BindView(R.id.my_recycler)
     public RecyclerView recyclerView;
-
+    public DepartmentAdapter adapter;
     public static DepartmentFragment newInstance(Bundle args) {
 
 //        Bundle args = new Bundle();
@@ -43,13 +44,14 @@ public class DepartmentFragment extends BaseFramgent<DepartmentPresenter,Departm
 
     private void initView() {
         ViewUtil.initRecyclerViewStyle(mContext,recyclerView, LinearLayout.VERTICAL);
+
     }
 
     private void initToolBar() {
         RxToolbar.navigationClicks(toolbar).compose(RxthrottleFirst.applyThrottleFirst()).subscribe(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
-                PressBack();
+                pop();
             }
         });
     }

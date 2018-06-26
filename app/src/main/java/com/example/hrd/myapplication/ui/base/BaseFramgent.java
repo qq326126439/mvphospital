@@ -123,7 +123,7 @@ public abstract class   BaseFramgent <T extends BasePresenter, E extends BaseMod
     }
 
     public void PressBack(){
-        Log.e("test",getChildFragmentManager().getBackStackEntryCount()+"");
+//        Log.e("test",getChildFragmentManager().getBackStackEntryCount()+"");
         if (getChildFragmentManager().getBackStackEntryCount() > 1) {
             popChild();
         } else {
