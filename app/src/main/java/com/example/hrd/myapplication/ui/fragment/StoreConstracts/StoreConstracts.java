@@ -2,6 +2,7 @@ package com.example.hrd.myapplication.ui.fragment.StoreConstracts;
 
 import com.example.hrd.myapplication.bean.StoreBean;
 import com.example.hrd.myapplication.bean.StoreListBean;
+import com.example.hrd.myapplication.http.Webservice;
 import com.example.hrd.myapplication.mvp.BaseModel;
 import com.example.hrd.myapplication.mvp.BasePresenter;
 import com.example.hrd.myapplication.mvp.BaseView;
@@ -15,7 +16,7 @@ public interface StoreConstracts {
         public abstract void getList();
     }
     interface StoreModel extends BaseModel{
-        Observable<StoreListBean<String>> getList();
+        Observable<Webservice<String>> getList();
     }
     interface StoreMview extends BaseView{
         void UpdateView(List<StoreBean> list);

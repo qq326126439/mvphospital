@@ -41,6 +41,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
 //        Log.e("对象",mPresenter+"---"+mModel);
         if (this instanceof BaseView) mPresenter.attachVM(this, mModel);
 //        StyledDialog.init(getApplicationContext());
+        setSupportActionBar(toolbar);
         initCreate(savedInstanceState);
         setToolbar();
 
@@ -59,7 +60,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     }
     public void setToolbar(){
         if(toolbar!=null){
-            setSupportActionBar(toolbar);
             toolbar.setNavigationIcon(R.mipmap.backspace);
             toolbar.setTitle(R.string.app_name);
         }

@@ -17,6 +17,10 @@ public class CommonUtil {
         public final static String StoreCode="StoreCode";
         public final static String StoreName="StoreName";
     }
+    public static class Department{
+        public final static String DepartmentName="DepartmentName";
+        public final static String DepartmentCode="DepartmentCode";
+    }
 
 
     public static boolean CheckNotNull(String str){

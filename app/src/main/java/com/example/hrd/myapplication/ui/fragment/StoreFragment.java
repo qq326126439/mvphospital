@@ -3,12 +3,10 @@ package com.example.hrd.myapplication.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.hrd.myapplication.Adapter.EquipmentAdapter;
-import com.example.hrd.myapplication.EventBus.StartBrotherEvent;
+import com.example.hrd.myapplication.Adapter.StoreAdapter;
 import com.example.hrd.myapplication.R;
 import com.example.hrd.myapplication.Util.CommonUtil;
 import com.example.hrd.myapplication.Util.RxthrottleFirst;
@@ -20,8 +18,6 @@ import com.example.hrd.myapplication.ui.fragment.StoreConstracts.StoreModel;
 import com.example.hrd.myapplication.ui.fragment.StoreConstracts.StorePresenter;
 import com.jakewharton.rxbinding2.support.v7.widget.RxToolbar;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,7 +26,7 @@ import io.reactivex.functions.Consumer;
 public class StoreFragment extends BaseFramgent<StorePresenter,StoreModel> implements StoreConstracts.StoreMview,BaseQuickAdapter.OnItemClickListener {
     @BindView(R.id.my_recycler)
     public RecyclerView recyclerView;
-    public EquipmentAdapter adapter;
+    public StoreAdapter adapter;
     public static StoreFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -48,22 +44,29 @@ public class StoreFragment extends BaseFramgent<StorePresenter,StoreModel> imple
 
     @Override
     protected void viewCreate(Bundle savedInstanceState) {
-        initToolBar();
         initView();
-        mPresenter.getList();
-
+        initToolBar();
     }
 
     private void initView() {
-        ViewUtil.initRecyclerViewStyle(mContext,recyclerView,LinearLayoutManager.VERTICAL);
-
+        ViewUtil.initRecyclerViewStyle(mContext,recyclerView,2);
+        mPresenter.getList();
     }
+
+//    @Override
+//    public void setToolbar() {
+//      if(toolbar!=null){
+//            toolbar.setNavigationIcon(R.mipmap.backspace);
+//            toolbar.setTitle("请选择库");
+//        }
+//    }
+
 
     private void initToolBar() {
         RxToolbar.navigationClicks(toolbar).compose(RxthrottleFirst.applyThrottleFirst()).subscribe(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
-                pop();
+                onBackPressedSupport();
             }
         });
     }
@@ -78,8 +81,7 @@ public class StoreFragment extends BaseFramgent<StorePresenter,StoreModel> imple
 
     @Override
     public void UpdateView(List<StoreBean> list) {
-
-        adapter=new EquipmentAdapter(mContext,R.layout.item_store,list);
+        adapter=new StoreAdapter(mContext,R.layout.item_store,list);
         adapter.setOnItemClickListener(this);
         recyclerView.setAdapter(adapter);
     }

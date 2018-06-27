@@ -16,7 +16,7 @@ import ikidou.reflect.TypeBuilder;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public abstract class BaseObserve <T,R> implements Observer<StoreListBean<String>> {
+public abstract class BaseObserve <R> implements Observer<Webservice<String>> {
 
     Disposable disposable;
     @Override
@@ -38,14 +38,14 @@ public abstract class BaseObserve <T,R> implements Observer<StoreListBean<String
 //    }
 
     @Override
-    public void onNext(StoreListBean storeListBean) {
+    public void onNext(Webservice storeListBean) {
         if(storeListBean!=null&&storeListBean.getState().trim().equals("1")){
             String json= (String) storeListBean.getData();
-            Type BaseType=TUtil.getType(this,1);
+            Type BaseType=TUtil.getType(this,0);
             R r=new Gson().fromJson(json,BaseType);
             onSuccess(r);
         }else{
-            onFailure(storeListBean.getMsc());
+            onFailure(storeListBean.getMessage());
         }
 
     }

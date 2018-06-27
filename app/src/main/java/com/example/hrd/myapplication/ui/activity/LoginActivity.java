@@ -110,6 +110,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter,LoginModel> imple
     @Override
     public void updateData(String msg) {
         StyledDialog.dismissLoading();
+        User.getUser().setUserName(TextAccount.getText().toString().trim());
         Intent intent=new Intent(mContext,MainActivity.class);
         startActivity(intent);
         finish();

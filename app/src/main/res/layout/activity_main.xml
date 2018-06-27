@@ -20,16 +20,9 @@
             android:id="@+id/Top_title"
             layout="@layout/layout_title"
             />
-        <com.jude.rollviewpager.RollPagerView
-            android:id="@+id/myRollPagerView"
-            android:layout_below="@+id/Top_title"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:rollviewpager_play_delay="2000"
-            />
         <android.support.v7.widget.RecyclerView
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/myRollPagerView"
+            android:layout_below="@+id/Top_title"
             android:layout_centerInParent="true"
             android:id="@+id/my_recycler"
             android:layout_width="match_parent"

@@ -11,7 +11,7 @@ public class StorePresenter extends StoreConstracts.StorePresenter{
 
     @Override
     public void getList() {
-        mModel.getList().subscribe(new BaseObserve<String,List<StoreBean>>() {
+        mModel.getList().subscribe(new BaseObserve<List<StoreBean>>() {
             @Override
             public void onSuccess(List<StoreBean> t) {
                 mView.UpdateView(t);

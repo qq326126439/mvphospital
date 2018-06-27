@@ -79,9 +79,13 @@ public abstract class   BaseFramgent <T extends BasePresenter, E extends BaseMod
 
     }
 
+
+
     public void setToolbar(){
-        toolbar.setNavigationIcon(R.mipmap.backspace);
-        toolbar.setTitle(R.string.app_name);
+        if(toolbar!=null){
+            toolbar.setNavigationIcon(R.mipmap.backspace);
+            toolbar.setTitle(R.string.app_name);
+        }
     }
     @Override
     public void onAttach(Context context) {

@@ -1,29 +1,26 @@
-package com.example.hrd.myapplication.ui.fragment.StoreConstracts;
-
+package com.example.hrd.myapplication.ui.fragment.DetailConstracts;
 
 import android.support.v4.util.SimpleArrayMap;
 
 import com.example.hrd.myapplication.WebService.XWebService;
-import com.example.hrd.myapplication.bean.StoreBean;
-import com.example.hrd.myapplication.bean.StoreListBean;
-import com.example.hrd.myapplication.http.RxSchedulers;
 import com.example.hrd.myapplication.http.Webservice;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
 
-public class StoreModel implements StoreConstracts.StoreModel{
+public class DetailModel implements DetailConstracts.DetailModel{
+
     @Override
-    public Observable<Webservice<String>> getList() {
+    public Observable<Webservice<String>> getList(final String StoreId, final String DepartmentId, final String type) {
         return Observable.create(new ObservableOnSubscribe<Webservice<String>>() {
             @Override
             public void subscribe(final ObservableEmitter<Webservice<String>> e) throws Exception {
-                XWebService.getIntentData(Webservice.class, "getStorageRoomList", null, new XWebService.OnResultListener<Webservice>() {
+                SimpleArrayMap args=new SimpleArrayMap();
+                args.put("arg0",StoreId);
+                args.put("arg1",DepartmentId);
+                args.put("arg2",type);
+                XWebService.getIntentData(Webservice.class, "getEquipmentListByDeptIdAndStorageRoomCode", args, new XWebService.OnResultListener<Webservice>() {
                     @Override
                     public void onSuccess(Webservice bean) {
                         e.onNext(bean);
@@ -35,7 +32,6 @@ public class StoreModel implements StoreConstracts.StoreModel{
                         e.onError(exception);
                     }
                 });
-
             }
         });
     }

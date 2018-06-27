@@ -71,11 +71,12 @@ public class WebServiceUtils {
             }
         }
 
+
+
         // 3.实例化SoapSerializationEnvelope，传入WebService的SOAP协议的版本号
         final SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.dotNet = isDotNet; // 设置是否调用的是.Net开发的WebService
         envelope.setOutputSoapObject(request);
-
         // 4.用于子线程与主线程通信的Handler，网络请求成功时会在子线程发送一个消息，然后在主线程上接收
         final Handler responseHandler = new Handler() {
 

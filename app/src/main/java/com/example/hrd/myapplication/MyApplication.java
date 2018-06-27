@@ -20,7 +20,7 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         context=getApplicationContext();
         ZXingLibrary.initDisplayOpinion(context);
-        Fragmentation.builder().stackViewMode(Fragmentation.BUBBLE).debug(BuildConfig.DEBUG).install();
+        Fragmentation.builder().stackViewMode(Fragmentation.NONE).debug(BuildConfig.DEBUG).install();
         User.getUser();
     }
 

@@ -4,7 +4,6 @@ public class User {
     public static User user=null;
     private String Url;
     private String UserName;
-    private String StoreNum;
 
 
     public static User getUser(){
@@ -36,11 +35,4 @@ public class User {
         UserName = userName;
     }
 
-    public String getStoreNum() {
-        return StoreNum;
-    }
-
-    public void setStoreNum(String storeNum) {
-        StoreNum = storeNum;
-    }
 }

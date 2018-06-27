@@ -13,19 +13,14 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 import com.example.hrd.myapplication.Adapter.MainAdapter;
-import com.example.hrd.myapplication.ImageUtil.GlideUtil;
+
 import com.example.hrd.myapplication.R;
 import com.example.hrd.myapplication.Util.RxthrottleFirst;
 import com.example.hrd.myapplication.Util.ViewUtil;
-import com.example.hrd.myapplication.Util.WebServiceUtils;
 import com.example.hrd.myapplication.WebService.XWebService;
 import com.example.hrd.myapplication.bean.MainMenuBean;
-import com.example.hrd.myapplication.bean.TestBean;
 import com.example.hrd.myapplication.bean.WebServiceBean;
 import com.example.hrd.myapplication.ui.activity.MainActivityConstracts.MainConstracts;
 import com.example.hrd.myapplication.ui.activity.MainActivityConstracts.MainModel;
@@ -36,8 +31,6 @@ import com.google.gson.GsonBuilder;
 import com.jakewharton.rxbinding2.support.v7.widget.RxSearchView;
 import com.jakewharton.rxbinding2.support.v7.widget.RxToolbar;
 import com.jakewharton.rxbinding2.support.v7.widget.SearchViewQueryTextEvent;
-import com.jude.rollviewpager.RollPagerView;
-import com.jude.rollviewpager.adapter.LoopPagerAdapter;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
@@ -58,8 +51,6 @@ import io.reactivex.functions.Consumer;
 public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implements MainConstracts.MainMview{
     @BindView(R.id.my_recycler)
     public RecyclerView MyRecyclerView;
-    @BindView(R.id.myRollPagerView)
-    public RollPagerView rollPagerView;
     @BindView(R.id.mDrawerLayout)
     public DrawerLayout drawerLayout;
     public final int REQUEST_CODE=0x01;
@@ -76,14 +67,14 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
     }
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.fragment_null;
     }
 
     @Override
     protected void viewCreate(Bundle savedInstanceState) {
-        initView();
-        
-        TestWebService();
+//        initView();
+          start(StoreFragment.newInstance());
+//        TestWebService();
 //        CheckUpdate();
     }
 
@@ -208,24 +199,6 @@ public class MainFragment extends BaseFramgent<MainPresenter,MainModel> implemen
                 }
             }
         });
-          rollPagerView.setAdapter(new LoopPagerAdapter(rollPagerView) {
-              private int[] imgs = {
-                      R.mipmap.show1,R.mipmap.show2
-              };
-              @Override
-              public View getView(ViewGroup container, int position) {
-                  ImageView view = new ImageView(container.getContext());
-                  view.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                  view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                  GlideUtil.LoadCommonImage(mContext,imgs[position],view);
-                  return view;
-              }
-
-              @Override
-              public int getRealCount() {
-                  return imgs.length;
-              }
-          });
           mPresenter.getMainMenu();
 
     }

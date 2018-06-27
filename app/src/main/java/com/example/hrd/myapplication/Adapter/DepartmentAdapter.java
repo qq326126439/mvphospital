@@ -5,6 +5,7 @@ import android.support.annotation.LayoutRes;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.example.hrd.myapplication.R;
 import com.example.hrd.myapplication.bean.DepartmentBean;
 
 import java.util.List;
@@ -17,6 +18,6 @@ public class DepartmentAdapter extends BaseQuickAdapter<DepartmentBean,BaseViewH
 
     @Override
     protected void convert(BaseViewHolder helper, DepartmentBean item) {
-
+        helper.setText(R.id.Name,item.getDeptname());
     }
 }
