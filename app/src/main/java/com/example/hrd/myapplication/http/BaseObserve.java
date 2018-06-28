@@ -27,23 +27,21 @@ public abstract class BaseObserve <R> implements Observer<Webservice<String>> {
 
 
     public abstract void onSuccess(R t);
+    public abstract void onSuccess(String msg);
     public abstract void onFailure(String s);
-
-//    public void IfList(Type type,TypeBuilder typeBuilder){
-//        if(type instanceof List){
-//            IfList(TUtil.getType(type,0),typeBuilder);
-//        }else {
-//            typeBuilder.addTypeParam(type);
-//        }
-//    }
 
     @Override
     public void onNext(Webservice storeListBean) {
-        if(storeListBean!=null&&storeListBean.getState().trim().equals("1")){
+        if(storeListBean!=null&&Integer.valueOf(storeListBean.getState())!=-1){
             String json= (String) storeListBean.getData();
             Type BaseType=TUtil.getType(this,0);
             R r=new Gson().fromJson(json,BaseType);
-            onSuccess(r);
+            if(storeListBean.getData()!=null){
+                onSuccess(r);
+            }else{
+                onSuccess(storeListBean.getMessage());
+            }
+
         }else{
             onFailure(storeListBean.getMessage());
         }

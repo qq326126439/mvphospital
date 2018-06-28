@@ -74,8 +74,8 @@ public class StoreFragment extends BaseFramgent<StorePresenter,StoreModel> imple
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         Bundle bundle=new Bundle();
-        bundle.putString(CommonUtil.StoreData.StoreCode,((StoreBean) adapter.getData().get(position)).getStorageroomcode());
-        bundle.putString(CommonUtil.StoreData.StoreName,((StoreBean) adapter.getData().get(position)).getStorageroomname());
+        bundle.putString(CommonUtil.StoreData.STORECODE,((StoreBean) adapter.getData().get(position)).getStorageroomcode());
+        bundle.putString(CommonUtil.StoreData.STORENAME,((StoreBean) adapter.getData().get(position)).getStorageroomname());
         Start(bundle);
     }
 

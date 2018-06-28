@@ -14,12 +14,20 @@ public class CommonUtil {
         public final static String NetWork="NetWork";
     }
     public static class StoreData{
-        public final static String StoreCode="StoreCode";
-        public final static String StoreName="StoreName";
+        public final static String STORECODE="StoreCode";
+        public final static String STORENAME="StoreName";
     }
     public static class Department{
-        public final static String DepartmentName="DepartmentName";
-        public final static String DepartmentCode="DepartmentCode";
+        public final static String DEPARTMENTNAME="DepartmentName";
+        public final static String DEPARTMENTCODE="DepartmentCode";
+    }
+    public static class Equip{
+        public final static String STORENAME="StoreName";
+        public final static String EQUIPNAME="EquipName";
+        public final static String MODEL="MODEL";
+        public final static String DEPARTMENT="Department";
+        public final static String VALUE="Value";
+        public final static String EQUIPID="EquipId";
     }
 
 

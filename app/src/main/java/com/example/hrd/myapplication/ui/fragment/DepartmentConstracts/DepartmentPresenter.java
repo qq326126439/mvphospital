@@ -17,6 +17,11 @@ public class DepartmentPresenter extends DepartmentConstracts.DepartmentPresente
     public void getList(String code) {
         mModel.getList(code).subscribe(new BaseObserve<List<DepartmentBean>>() {
             @Override
+            public void onSuccess(String msg) {
+
+            }
+
+            @Override
             public void onSuccess(List<DepartmentBean> t) {
                 mView.UpdataView(t);
             }

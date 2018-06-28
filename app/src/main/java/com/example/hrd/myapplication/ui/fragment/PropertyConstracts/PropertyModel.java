@@ -11,15 +11,15 @@ import io.reactivex.ObservableOnSubscribe;
 
 public class PropertyModel implements PropertyConstracts.PropertyModel{
     @Override
-    public Observable<Webservice> PostComment(final String userName, final String EquipNum, final String Comment, final String type) {
-        return Observable.create(new ObservableOnSubscribe<Webservice>() {
+    public Observable<Webservice<String>> PostComment(final String userName, final String EquipNum, final String Comment, final String type) {
+        return Observable.create(new ObservableOnSubscribe<Webservice<String>>() {
             @Override
-            public void subscribe(final ObservableEmitter<Webservice> e) throws Exception {
+            public void subscribe(final ObservableEmitter<Webservice<String>> e) throws Exception {
                 SimpleArrayMap args=new SimpleArrayMap();
-                args.put("args0",EquipNum);
-                args.put("args1",userName);
-                args.put("args2",type);
-                args.put("args3",Comment);
+                args.put("arg0",EquipNum);
+                args.put("arg1",userName);
+                args.put("arg2",type);
+                args.put("arg3",Comment);
                 XWebService.getIntentData(Webservice.class, "insertInventory", args, new XWebService.OnResultListener<Webservice>() {
                     @Override
                     public void onSuccess(Webservice bean) {

@@ -51,7 +51,7 @@ public class DepartmentFragment extends BaseFramgent<DepartmentPresenter,Departm
 
     private void initView() {
         ViewUtil.initRecyclerViewStyle(mContext,recyclerView, 2);
-        mPresenter.getList(getArguments().getString(CommonUtil.StoreData.StoreCode));
+        mPresenter.getList(getArguments().getString(CommonUtil.StoreData.STORECODE));
     }
 
     private void initToolBar() {
@@ -74,8 +74,8 @@ public class DepartmentFragment extends BaseFramgent<DepartmentPresenter,Departm
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         Bundle args=new Bundle();
-        args.putString(CommonUtil.StoreData.StoreCode,getArguments().getString(CommonUtil.StoreData.StoreCode));
-        args.putString(CommonUtil.Department.DepartmentCode,((DepartmentBean)adapter.getData().get(position)).getDeptcode());
+        args.putString(CommonUtil.StoreData.STORECODE,getArguments().getString(CommonUtil.StoreData.STORECODE));
+        args.putString(CommonUtil.Department.DEPARTMENTCODE,((DepartmentBean)adapter.getData().get(position)).getDeptcode());
         start(DetailFragment.newInstance(args));
     }
 
