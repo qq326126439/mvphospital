@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.util.SimpleArrayMap;
 
+import com.example.hrd.myapplication.Constracts.NetworkConstracts;
+
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
@@ -58,8 +60,7 @@ public class WebServiceUtils {
                      SimpleArrayMap<String, String> mapParams,
                      final Response reponseCallBack) {
         // 1.创建HttpTransportSE对象，传递WebService服务器地址
-        final HttpTransportSE transport = new HttpTransportSE(url);
-        transport.debug = true;
+        final HttpTransportSE transport = new HttpTransportSE(url, NetworkConstracts.DEFAULT_TIMEOUT);
         // 2.创建SoapObject对象用于传递请求参数
         final SoapObject request = new SoapObject(nameSpace, methodName);
         // 2.1.添加参数也可以不传

@@ -37,7 +37,9 @@
                 android:layout_height="130dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/select_edit"
-                android:gravity="top" />
+                android:gravity="top"
+                android:hint="异常上报时必须在此框填写异常内容！"
+                />
             <LinearLayout
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"

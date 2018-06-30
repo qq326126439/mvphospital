@@ -9,10 +9,12 @@ public class PropertyPresenter extends PropertyConstracts.PropertyPresenter{
             @Override
             public void onSuccess(String t) {
                 mView.ShowDialog(t);
+//                mView.backPre();//继承返回上一层的方法
             }
 
             @Override
-            public void onFailure(String s) {
+            public void onFailure(String s)
+            {
                 mView.showError(s);
             }
         });

@@ -24,6 +24,33 @@ public class EquipmentBean {
     private String storagename;
     private String storageroomcode;
     private String value;
+    private String inventoryid;
+    private String inventorystate;
+    private String signdata;
+
+    public String getSigndata() {
+        return signdata;
+    }
+
+    public void setSigndata(String signdata) {
+        this.signdata = signdata;
+    }
+
+    public String getInventorystate() {
+        return inventorystate;
+    }
+
+    public void setInventorystate(String inventorystate) {
+        this.inventorystate = inventorystate;
+    }
+
+    public String getInventoryid() {
+        return inventoryid;
+    }
+
+    public void setInventoryid(String inventoryid) {
+        this.inventoryid = inventoryid;
+    }
 
     public String getDeptcode() {
         return deptcode;

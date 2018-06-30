@@ -11,18 +11,37 @@ public class DetailPresenter extends DetailConstracts.DetailPresenter{
 
     }
 
-
     @Override
-    public void getList(String StoreId, String DepartmentId,String type) {
-        mModel.getList(StoreId,DepartmentId,type).subscribe(new BaseObserve<List<EquipmentBean>>() {
+    public void SearchById(String getEquipmentDetByEquipmentNum) {
+        mModel.SearchById(getEquipmentDetByEquipmentNum).subscribe(new BaseObserve<EquipmentBean>() {
+            @Override
+            public void onSuccess(EquipmentBean equipmentBean) {
+                mView.Goto(equipmentBean);
+            }
+
             @Override
             public void onSuccess(String msg) {
 
             }
 
             @Override
-            public void onSuccess(List<EquipmentBean> t) {
-                mView.Updatea(t);
+            public void onFailure(String s) {
+                mView.showError(s);
+            }
+        });
+    }
+
+    @Override
+    public void getList(String searchKey,String StoreId, String DepartmentId,String type,String page) {
+        mModel.getList(searchKey,StoreId,DepartmentId,type,page).subscribe(new BaseObserve<List<EquipmentBean>>() {
+            @Override
+            public void onSuccess(List<EquipmentBean> equipmentBeans) {
+                mView.Updatea(equipmentBeans);
+            }
+
+            @Override
+            public void onSuccess(String msg) {
+
             }
 
             @Override

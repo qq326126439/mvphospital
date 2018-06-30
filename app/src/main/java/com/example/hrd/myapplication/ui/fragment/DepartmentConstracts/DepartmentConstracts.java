@@ -16,7 +16,8 @@ public interface DepartmentConstracts {
         public abstract void getList(String code);
     }
     interface DepartmentModel extends BaseModel{
-        Observable<Webservice<String>> getList(String code);
+        Observable<Webservice<List<DepartmentBean>>> getList(String code);
+
 
     }
 

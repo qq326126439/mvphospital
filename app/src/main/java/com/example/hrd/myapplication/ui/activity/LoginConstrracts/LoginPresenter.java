@@ -19,7 +19,7 @@ public class LoginPresenter extends LoginConstracts.LoginPresenter{
 
             @Override
             public void onError(Throwable e) {
-                mView.showError("请输入正确的服务器地址!");
+                mView.showError(e.getMessage());
             }
 
             @Override

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">卫医通</string>
+    <string name="app_name">资产盘点</string>
     <string name="str_network_timeout">服务器响应超时</string>
     <string name="str_network_check">网络连接异常，请检查网络</string>
     <string name="str_network_nointernet">没有网络，请检查网络连接</string>

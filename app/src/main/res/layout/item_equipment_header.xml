@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#954771A1"
+    >
 
     <TextView
         android:layout_width="0dp"
@@ -9,34 +11,38 @@
         android:layout_weight="1"
         android:gravity="center"
         android:padding="12dp"
+        android:textColor="@color/white"
         android:text="设备号"
-        android:textSize="18sp" />
+        android:textSize="15sp" />
     <TextView
         android:padding="12dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:gravity="center"
         android:layout_weight="1"
         android:layout_width="0dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:text="设备名称"
         />
     <TextView
         android:padding="12dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:gravity="center"
         android:layout_weight="1"
         android:layout_width="0dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:text="型号"
         />
     <TextView
         android:padding="12dp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:gravity="center"
         android:layout_weight="1"
         android:layout_width="0dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
-        android:text="所属科室"
+        android:text="原值"
         />
 
 </LinearLayout>

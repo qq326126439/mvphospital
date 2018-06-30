@@ -76,6 +76,7 @@ public class DepartmentFragment extends BaseFramgent<DepartmentPresenter,Departm
         Bundle args=new Bundle();
         args.putString(CommonUtil.StoreData.STORECODE,getArguments().getString(CommonUtil.StoreData.STORECODE));
         args.putString(CommonUtil.Department.DEPARTMENTCODE,((DepartmentBean)adapter.getData().get(position)).getDeptcode());
+        args.putString(CommonUtil.Department.DEPARTMENTNAME,((DepartmentBean)adapter.getData().get(position)).getDeptname());
         start(DetailFragment.newInstance(args));
     }
 

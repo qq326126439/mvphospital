@@ -13,12 +13,16 @@ import io.reactivex.Observable;
 
 public interface DetailConstracts {
      abstract class DetailPresenter extends BasePresenter<DetailModel,DetailMview>{
-        public abstract void getList(String StoreId,String DepartmentId,String type);
+        public abstract void getList(String searchKey,String StoreId,String DepartmentId,String type,String nowPage);
+         public abstract void SearchById(String getEquipmentDetByEquipmentNum);
     }
     interface DetailModel extends BaseModel{
-        Observable<Webservice<String>> getList(String StoreId,String DepartmentId,String type);
+        Observable<Webservice<List<EquipmentBean>>> getList(String searchKey,String StoreId,String DepartmentId,String type,String nowPage);
+        Observable<Webservice<EquipmentBean>> SearchById(String getEquipmentDetByEquipmentNum);
+
     }
     interface DetailMview extends BaseView{
         void Updatea(List<EquipmentBean> mlist);
+        void Goto(EquipmentBean bean);
     }
 }

@@ -13,13 +13,13 @@ public class StorePresenter extends StoreConstracts.StorePresenter{
     public void getList() {
         mModel.getList().subscribe(new BaseObserve<List<StoreBean>>() {
             @Override
-            public void onSuccess(String msg) {
-
+            public void onSuccess(List<StoreBean> storeBeans) {
+                mView.UpdateView(storeBeans);
             }
 
             @Override
-            public void onSuccess(List<StoreBean> t) {
-                mView.UpdateView(t);
+            public void onSuccess(String msg) {
+
             }
 
             @Override

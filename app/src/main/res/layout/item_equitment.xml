@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/shape_border"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         android:gravity="center"
         android:padding="12dp"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="13sp" />
 
         <TextView
         android:id="@+id/EquipName"
@@ -26,7 +27,7 @@
         android:gravity="center"
         android:padding="12dp"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="13sp" />
 
         <TextView
         android:id="@+id/model"
@@ -36,17 +37,17 @@
         android:gravity="center"
         android:padding="12dp"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="13sp" />
 
         <TextView
-        android:id="@+id/Department"
+        android:id="@+id/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:padding="12dp"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="13sp" />
     </LinearLayout>
 
     <TextView

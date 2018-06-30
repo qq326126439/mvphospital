@@ -3,6 +3,7 @@ package com.example.hrd.myapplication.http;
 import android.content.Intent;
 import android.util.Log;
 
+import com.example.hrd.myapplication.Util.CommonUtil;
 import com.example.hrd.myapplication.Util.TUtil;
 import com.example.hrd.myapplication.bean.StoreListBean;
 import com.google.gson.Gson;
@@ -16,7 +17,7 @@ import ikidou.reflect.TypeBuilder;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public abstract class BaseObserve <R> implements Observer<Webservice<String>> {
+public abstract class BaseObserve <T> implements Observer<Webservice<T>> {
 
     Disposable disposable;
     @Override
@@ -24,24 +25,24 @@ public abstract class BaseObserve <R> implements Observer<Webservice<String>> {
         disposable=d;
     }
 
-
-
-    public abstract void onSuccess(R t);
+    public abstract void onSuccess(T t);
     public abstract void onSuccess(String msg);
     public abstract void onFailure(String s);
 
     @Override
     public void onNext(Webservice storeListBean) {
-        if(storeListBean!=null&&Integer.valueOf(storeListBean.getState())!=-1){
-            String json= (String) storeListBean.getData();
-            Type BaseType=TUtil.getType(this,0);
-            R r=new Gson().fromJson(json,BaseType);
+        int result=Integer.valueOf(storeListBean.getState());
+        if(storeListBean!=null&&result!=-1){
             if(storeListBean.getData()!=null){
-                onSuccess(r);
-            }else{
+                if(result==1)
+                    onSuccess((T) storeListBean.getData());
+                else
+                    onSuccess(storeListBean.getMessage());
+            }
+            else
+            {
                 onSuccess(storeListBean.getMessage());
             }
-
         }else{
             onFailure(storeListBean.getMessage());
         }

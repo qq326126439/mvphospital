@@ -1,6 +1,9 @@
 package com.example.hrd.myapplication.Util;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import java.util.Timer;
@@ -28,11 +31,32 @@ public class CommonUtil {
         public final static String DEPARTMENT="Department";
         public final static String VALUE="Value";
         public final static String EQUIPID="EquipId";
+        public final static String SIGNDATA="signdata";
     }
 
 
     public static boolean CheckNotNull(String str){
 
-        return str!=null&&!str.equals("");
+        return str!=null&&!str.trim().equals("");
     }
+
+    public static void showdialog(int Dtype,Context context,String msg,String btnName)
+    {
+        String[] btnNames=btnName.split(",");
+        AlertDialog.Builder alertBuilder=new AlertDialog.Builder(context);
+        alertBuilder.setMessage(msg);
+        if(Dtype==1)
+        {
+            alertBuilder.setPositiveButton(btnNames[0], new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog alert=alertBuilder.create();
+            alert.show();
+        }
+    }
+
+
 }

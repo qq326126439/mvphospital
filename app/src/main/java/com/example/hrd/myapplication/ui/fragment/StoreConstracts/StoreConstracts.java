@@ -16,7 +16,7 @@ public interface StoreConstracts {
         public abstract void getList();
     }
     interface StoreModel extends BaseModel{
-        Observable<Webservice<String>> getList();
+        Observable<Webservice<List<StoreBean>>> getList();
     }
     interface StoreMview extends BaseView{
         void UpdateView(List<StoreBean> list);

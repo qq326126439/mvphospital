@@ -15,6 +15,7 @@ public interface PropertyConstracts {
         Observable<Webservice<String>> PostComment(String userName,String EquipNum,String Comment,String type);
     }
     interface PropertyMview extends BaseView{
+        void backPre();
         void ShowDialog(String message);
     }
 }
