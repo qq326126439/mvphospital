@@ -21,7 +21,7 @@ public class DetailPresenter extends DetailConstracts.DetailPresenter{
 
             @Override
             public void onSuccess(String msg) {
-
+                mView.updateData(msg);
             }
 
             @Override
@@ -41,7 +41,7 @@ public class DetailPresenter extends DetailConstracts.DetailPresenter{
 
             @Override
             public void onSuccess(String msg) {
-
+                mView.showError(msg);
             }
 
             @Override

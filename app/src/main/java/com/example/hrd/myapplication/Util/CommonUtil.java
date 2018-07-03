@@ -32,6 +32,7 @@ public class CommonUtil {
         public final static String VALUE="Value";
         public final static String EQUIPID="EquipId";
         public final static String SIGNDATA="signdata";
+        public final static String COMMENT="comment";
     }
 
 

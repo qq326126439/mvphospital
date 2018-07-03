@@ -27,6 +27,15 @@ public class EquipmentBean {
     private String inventoryid;
     private String inventorystate;
     private String signdata;
+    private String inventorydet;
+
+    public String getInventorydet() {
+        return inventorydet;
+    }
+
+    public void setInventorydet(String inventorydet) {
+        this.inventorydet = inventorydet;
+    }
 
     public String getSigndata() {
         return signdata;

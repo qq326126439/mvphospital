@@ -14,11 +14,13 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
         <ImageView
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:scaleType="fitCenter"
             android:src="@mipmap/biglogo"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_width="match_parent"
             />
         <EditText
@@ -105,7 +107,8 @@
             android:layout_marginTop="80dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fklsdjflkdsjfslkdjfsdlkjfsdlkj"
+            android:text="南昌志达科技有限公司@2018
+"
             />
         </LinearLayout>
 

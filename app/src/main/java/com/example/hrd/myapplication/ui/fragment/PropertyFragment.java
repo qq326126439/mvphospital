@@ -75,7 +75,7 @@ public class PropertyFragment extends BaseFramgent<PropertyPresenter,PropertyMod
         ValueText.setText(getArguments().getString(CommonUtil.Equip.VALUE));
         EquipIdText.setText(getArguments().getString(CommonUtil.Equip.EQUIPID));
         SignDataText.setText(getArguments().getString(CommonUtil.Equip.SIGNDATA));
-
+        CommentText.setText(getArguments().getString(CommonUtil.Equip.COMMENT));
     }
     @OnClick({R.id.CheckBtn,R.id.ExceptionBtn})
     public void OnClick(View view){

@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="库房名称"
             android:textSize="16sp" />
 
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -36,16 +36,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="设备名称"
             android:textSize="16sp" />
 
         <TextView
+            android:maxEms="10"
             android:id="@+id/equipName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -58,7 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="型号"
             android:textSize="16sp" />
 
@@ -67,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -80,7 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="所属科室"
             android:textSize="16sp" />
 
@@ -89,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -102,7 +103,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="价值"
             android:textSize="16sp" />
 
@@ -111,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -123,7 +124,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="登记日期"
             android:textSize="16sp" />
 
@@ -132,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -145,7 +146,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
+            android:paddingLeft="0dp"
             android:text="设备编号"
             android:textSize="16sp" />
 
@@ -154,7 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:paddingRight="40dp"
+            android:paddingRight="0dp"
             android:textSize="16sp" />
     </RelativeLayout>
 

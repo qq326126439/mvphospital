@@ -54,7 +54,12 @@ public class DetailModel implements DetailConstracts.DetailModel{
                     @Override
                     public Webservice<EquipmentBean> apply(String s) throws Exception {
                         Webservice o=new Gson().fromJson(s,new TypeToken<Webservice>(){}.getType());
-                        o.setData(new Gson().fromJson(s,new TypeToken<EquipmentBean>(){}.getType()));
+                        try {
+                            o.setData(((List)new Gson().fromJson(o.getData().toString(),new TypeToken<List<EquipmentBean>>(){}.getType())).get(0));
+                        }catch (NullPointerException e){
+                            e.printStackTrace();
+                        }
+
                         return o;
                     }
                 }).compose(RxSchedulers.<Webservice<EquipmentBean>>applySchedulers());

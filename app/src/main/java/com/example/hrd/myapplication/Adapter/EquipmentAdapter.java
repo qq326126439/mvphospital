@@ -26,6 +26,13 @@ public class EquipmentAdapter extends BaseQuickAdapter<EquipmentBean,BaseViewHol
         helper.setText(R.id.EquipName,item.getEquipmentname());
         helper.setText(R.id.model,item.getModel());
         helper.setText(R.id.Value,item.getValue());
+        helper.setText(R.id.fault,item.getInventorydet());
+        boolean VISIBLE = false;
+        if(item.getInventorystate()!=null){
+            VISIBLE= item.getInventorystate().equals("2")?true:false;
+        }
+        helper.getView(R.id.fault).setVisibility(VISIBLE?View.VISIBLE:View.GONE);
+
         int color=Color.BLACK;
         try {
             if (item.getInventorystate().equals("1")) color = Color.BLUE;

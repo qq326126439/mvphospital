@@ -3,6 +3,7 @@ package com.example.hrd.myapplication.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,6 +26,8 @@ import com.example.hrd.myapplication.ui.base.BaseActivity;
 import com.hss01248.dialog.StyledDialog;
 import com.hss01248.dialog.interfaces.MyDialogListener;
 
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -45,6 +48,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter,LoginModel> imple
         StyledDialog.init(mContext);
         TextAccount.setText(SPUtils.getInstance().getString(CommonUtil.UserData.UserName,""));
         TextIp.setText(SPUtils.getInstance().getString(CommonUtil.UserData.NetWork,""));
+
+//        int count=SPUtils.getInstance().getInt("counter");
+        if(new Date().after(new Date("2018/8/3"))){
+            this.finish();
+        }
+//        SPUtils.getInstance().put("counter",++count);
+
     }
 
     @Override

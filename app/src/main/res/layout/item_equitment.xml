@@ -20,14 +20,16 @@
         android:textSize="13sp" />
 
         <TextView
-        android:id="@+id/EquipName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text=""
-        android:textSize="13sp" />
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:id="@+id/EquipName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text=""
+            android:textSize="13sp" />
 
         <TextView
         android:id="@+id/model"
@@ -51,17 +53,17 @@
     </LinearLayout>
 
     <TextView
+        android:padding="12dp"
         android:visibility="gone"
-        android:id="@+id/Check"
+        android:id="@+id/fault"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="13dp"
         android:gravity="center"
         android:text="@string/Check"
-        android:textSize="20sp"
-        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textColor="@color/black"
         android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:background="@drawable/shape_store"
+        android:layout_height="wrap_content"
+
         />
 
 

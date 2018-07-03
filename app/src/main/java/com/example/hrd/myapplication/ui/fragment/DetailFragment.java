@@ -74,6 +74,7 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
         nowTitle=getArguments().getString(CommonUtil.Department.DEPARTMENTNAME)+"未盘点";
         toolbar.setTitle(nowTitle);
         mPresenter.getList("",getArguments().getString(CommonUtil.StoreData.STORECODE),getArguments().getString(CommonUtil.Department.DEPARTMENTCODE),clickType,String.valueOf(nowPage));
+//        mPresenter.SearchById("00552");
     }
 
     private void initView() {
@@ -116,9 +117,9 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
 
     @OnClick({R.id.never,R.id.all,R.id.already})
     public void OnClick(View view){
+        IsLoadMore=false;
         switch (view.getId()) {
             case R.id.never://未盘点
-                IsLoadMore=false;
                 if(adapter!=null){
                     adapter.setNewData(null);
                     adapter.setEnableLoadMore(true);
@@ -134,7 +135,7 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
                 btnNever.setEnabled(true);
                 break;
             case R.id.all://所有
-                IsLoadMore=false;
+//                IsLoadMore=false;
                 if(adapter!=null) {
                     adapter.setEnableLoadMore(true);
                     adapter.setNewData(null);
@@ -148,7 +149,7 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
                 btnAll.setEnabled(true);
                 break;
             case R.id.already://已盘点
-                IsLoadMore=false;
+//                IsLoadMore=false;
                 if(adapter!=null){
                     adapter.setNewData(null);
                     adapter.setEnableLoadMore(true);
@@ -186,9 +187,9 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
 
     @Override
     public void showError(String msg) {
-        ViewUtil.showToast(msg);
+//        ViewUtil.showToast(msg);
         if(adapter!=null){
-            adapter.setNewData(null);
+//            adapter.setNewData(null);
             adapter.setEnableLoadMore(false);
             adapter.loadMoreEnd();
             adapter.loadMoreFail();
@@ -197,7 +198,7 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
 
     @Override
     public void updateData(String msg) {
-
+        ViewUtil.showToast(msg);
     }
 
     @Override
@@ -210,6 +211,7 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
         args.putString(CommonUtil.Equip.VALUE,((EquipmentBean)adapter.getData().get(position)).getValue());
         args.putString(CommonUtil.Equip.STORENAME,((EquipmentBean)adapter.getData().get(position)).getStoragename());
         args.putString(CommonUtil.Equip.SIGNDATA,((EquipmentBean)adapter.getData().get(position)).getSigndata());
+        args.putString(CommonUtil.Equip.COMMENT,((EquipmentBean)adapter.getData().get(position)).getInventorydet());
         startForResult(PropertyFragment.newInstance(args),REQUEST_RESULT);
     }
 
@@ -254,6 +256,11 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
     }
 
     @Override
+    public boolean onBackPressedSupport() {
+        pop();
+        return true;
+    }
+    @Override
     public void onFragmentResult(int requestCode, int resultCode, Bundle data) {
         super.onFragmentResult(requestCode, resultCode, data);
         switch (requestCode){
@@ -277,7 +284,7 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
                         }
                         if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
                             String result = bundle.getString(CodeUtils.RESULT_STRING);
-//                            Toast.makeText(mContext,"jieguo"+result,Toast.LENGTH_LONG).show();
+//
                             mPresenter.SearchById(result);
                         } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
                             Toast.makeText(mContext, "解析二维码失败", Toast.LENGTH_LONG).show();
@@ -305,4 +312,5 @@ public class DetailFragment extends BaseFramgent<DetailPresenter,DetailModel> im
 
         }
     }
+
 }
